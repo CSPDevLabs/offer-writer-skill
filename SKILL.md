@@ -32,31 +32,6 @@ This skill is not for sales copy. A claim without evidence is a defect, not a st
 
 When the project defines its own conventions for offer documents, for example in `CLAUDE.md` or `AGENTS.md`, apply them too. On a conflict, the project convention wins.
 
-## Rewrite of an existing document
-
-Edit the file in place. Do not create a second copy beside it. Keep the meaning. Change only the prose that breaks a rule. Do not change numbers, tables of data, headings or section numbers unless the user asks.
-
-1. Back up the original outside the repository:
-
-   ```bash
-   cp <path/to/document.md> /tmp/<document>.orig.md
-   ```
-
-2. Edit one passage at a time. Do not regenerate the whole file.
-3. Show the changes:
-
-   ```bash
-   git diff --no-index --word-diff /tmp/<document>.orig.md <path/to/document.md>
-   ```
-
-4. Check for banned words (see rule 3). "Seamless MPLS" as the name of a transport is allowed:
-
-   ```bash
-   rg -n -i 'hitless|zero[- ]impact|non-disruptive|future[- ]proof|best[- ]in[- ]class|world[- ]class|cutting[- ]edge|state[- ]of[- ]the[- ]art|leverage|synergy|holistic|seamless' <path/to/document.md>
-   ```
-
-5. In the reply, give the backup path and the diff command. List every claim you removed, so the user can restore it with a source.
-
 ## Writing rules in priority order
 
 ### 1. Truthful claims only
@@ -108,6 +83,31 @@ Never justify scope or effort with "because the customer asked". State the value
 - Each sentence makes sense on its own. A reference supports the sentence; it does not replace its content.
 - Write a sentence only if it gives a fact, a decision or a constraint specific to this offer. Cut standard method, facts the work will discover, and repeats.
 - When the user says a passage is unclear, the rewrite is shorter than the original. Fix that passage only.
+
+## Rewrite of an existing document
+
+Edit the file in place. Do not create a second copy beside it. Keep the meaning. Change only the prose that breaks a rule. Do not change numbers, tables of data, headings or section numbers unless the user asks.
+
+1. Back up the original outside the repository:
+
+   ```bash
+   cp <path/to/document.md> /tmp/<document>.orig.md
+   ```
+
+2. Edit one passage at a time. Do not regenerate the whole file.
+3. Show the changes:
+
+   ```bash
+   git diff --no-index --word-diff /tmp/<document>.orig.md <path/to/document.md>
+   ```
+
+4. Check for banned words (see rule 3). "Seamless MPLS" as the name of a transport is allowed:
+
+   ```bash
+   rg -n -i 'hitless|zero[- ]impact|non-disruptive|future[- ]proof|best[- ]in[- ]class|world[- ]class|cutting[- ]edge|state[- ]of[- ]the[- ]art|leverage|synergy|holistic|seamless' <path/to/document.md>
+   ```
+
+5. In the reply, give the backup path and the diff command. List every claim you removed, so the user can restore it with a source.
 
 ## Examples
 

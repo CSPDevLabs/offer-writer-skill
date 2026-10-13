@@ -1,4 +1,4 @@
-# offer-writer — customer offer documents in plain English
+# offer-writer skill
 
 An agent skill that writes and reviews customer offer documents: RFP responses, statements of work (SoW), proposals, solution descriptions, executive decks and offer emails. Claims must be truthful, commitments precise, and every sentence clear on the first read. The skill does not write marketing copy.
 
@@ -70,10 +70,6 @@ Use the offer-writer skill. Rewrite the scope section of this SoW.
 The delivered document is Markdown unless you ask for another format. The skill keeps only claims the inputs support. It marks missing facts *to confirm* instead of filling them. Project conventions in `CLAUDE.md` or `AGENTS.md` take precedence.
 
 For a rewrite of an existing file, the agent copies the original to `/tmp` first, edits the file in place, and checks the result with `git diff --no-index`. The reply gives the diff command and lists every claim it removed.
-
-## Publish
-
-Publish this directory as the repository root, or as `skills/offer-writer/` in a repository that holds several skills. `SKILL.md` must stay in place. The `name` field must stay `offer-writer`.
 
 ## Layout
 
